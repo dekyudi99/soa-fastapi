@@ -6,3 +6,5 @@ pydantic-settings
 pydantic[email]
 uvicorn[h2]
 cryptography
+locust
+hypercon
