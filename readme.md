@@ -11,6 +11,7 @@ The project demonstrates clean architectural design using:
 This setup highlights scalability, performance comparison between HTTP/1.1 and HTTP/2, and clean modular patterns for extending new API modules.
 
 ## Project structure
+```
 app/
 ├── api/v1/
 │   ├── router.py
@@ -39,6 +40,7 @@ app/
 ├── hypercorn_start.sh
 ├── uvicorn_start.sh
 └── requirements.txt
+```
 
 ## Key Features
 - FastAPI - High-performance async REST API framework
