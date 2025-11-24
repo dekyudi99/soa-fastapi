@@ -21,7 +21,7 @@ class AuthorRead(AuthorBase):
     author_id: int
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
-    deleted_at: Optional[datetime] = None
+
 
     class Config:
         orm_mode = True

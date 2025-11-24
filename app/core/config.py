@@ -1,5 +1,6 @@
 import os
 from pydantic_settings import BaseSettings, SettingsConfigDict
+from pydantic import Field
 from dotenv import load_dotenv
 
 # Load .env manually first (optional but safe)
@@ -13,6 +14,13 @@ class Settings(BaseSettings):
 
     # Database connection
     DATABASE_URL: str = "mysql+aiomysql://root:password@localhost:3306/library_db"
+
+    # JWT
+    SECRET_KEY: str = Field(..., env="SECRET_KEY")
+    REFRESH_SECRET_KEY: str = Field(..., env="REFRESH_SECRET_KEY")
+    ALGORITHM: str = Field("HS256", env="ALGORITHM")
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = Field(30, env="ACCESS_TOKEN_EXPIRE_MINUTES")
+    REFRESH_TOKEN_EXPIRE_DAYS: int = Field(7, env="REFRESH_TOKEN_EXPIRE_DAYS")
 
     # ✅ Proper v2 config syntax
     model_config = SettingsConfigDict(
