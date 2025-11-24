@@ -1,12 +1,14 @@
 from fastapi import FastAPI
 from app.api.v1.router import api_router
 from app.core.config import settings
+from app.core.middleware import JWTMiddleware
 
 def create_app() -> FastAPI:
     app = FastAPI(
         title=settings.PROJECT_NAME,
         version=settings.VERSION,
     )
+    app.add_middleware(JWTMiddleware)
 
     # include API blueprints
     app.include_router(api_router, prefix=settings.API_V1_STR)
@@ -15,6 +17,7 @@ def create_app() -> FastAPI:
 
 
 app = create_app()
+
 
 # For direct run
 if __name__ == "__main__":
