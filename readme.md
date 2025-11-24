@@ -77,6 +77,8 @@ hypercorn app.main:app \
  --certfile cert.pem \
  --keyfile key.pem
 ```
+hypercorn app.main:app --bind 127.0.0.1:8000 --certfile cert.pem --keyfile key.pem
+```
 
 ### Check run to verify http2 enabled
 `curl -v -k --http2 https://127.0.0.1:8000/api/v1/authors/`

@@ -7,4 +7,4 @@ pydantic[email]
 uvicorn[h2]
 cryptography
 locust
-hypercon
+hypercorn
